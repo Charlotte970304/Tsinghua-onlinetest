@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char word[4];
+    while(cin>>word[0]>>word[1]>>word[2]>>word[3])
+        cout<<word[3]<<word[2]<<word[1]<<word[0]<<endl;
+}
