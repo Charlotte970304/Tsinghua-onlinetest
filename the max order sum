@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long N;
+    while(cin>>N)
+    {
+        long long number[N],sum,ans=-9223372036854775808;
+        for(int i=0;i<N;i++)
+            cin>>number[i];
+        for(int i=0;i<N;i++)
+        {
+        	sum+=number[i];
+			if(sum>ans)
+			    ans=sum;
+			else if(sum<0)
+			    sum=0;   	
+		}
+        cout<<ans<<endl;
+    }
+}
