@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int N;
+    while(cin>>N)
+    {
+        int number;
+        long long big=-1000000,small=1000000;
+        while(N--)
+        {
+            cin>>number;
+            if(big<number)
+                big=number;
+            if(small>number)
+                small=number;
+        }
+        cout<<big<<" "<<small<<endl;
+    }
+}
