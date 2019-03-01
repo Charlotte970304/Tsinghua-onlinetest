@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<sstream>
+using namespace std;
+
+int main()
+{
+    int number;
+    string Number,rNumber;
+    stringstream ss;
+    for(number=0;number<=256;number++)
+    {
+        ss.str("");
+        ss.clear();
+        ss<<(number*number);
+        ss>>Number;
+        rNumber=Number;
+        reverse(rNumber.begin(),rNumber.end());
+        if(Number==rNumber)
+            cout<<number<<endl;
+    }
+}
