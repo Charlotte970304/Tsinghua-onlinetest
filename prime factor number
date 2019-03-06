@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    long N;
+    while(cin>>N)
+    {
+        long count=0;
+		for(int i=2;i<=sqrt(N);i++)
+		{
+			while(N%i==0)
+			{
+				N/=i;
+				count++;
+			}
+		}
+		if(N>1)
+		count++;
+    	cout<<count<<endl;
+	}
+}
