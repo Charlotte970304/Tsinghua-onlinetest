@@ -1,0 +1,33 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    int n;
+    while(cin>>n)
+    {
+        string no[n],name[n],sex[n],age[n];
+        for(int i=0;i<n;i++)
+        {
+            cin>>no[i]>>name[i]>>sex[i]>>age[i];
+        }
+        int m;
+        string num;
+        cin>>m;
+        while(m--)
+        {
+            bool find=false;
+            cin>>num;
+            for(int i=0;i<n;i++)
+                if(no[i]==num)
+                {
+                    cout<<no[i]<<' '<<name[i]<<' '<<sex[i]<<' '<<age[i]<<endl;
+                    find=true;
+                    break;
+                }
+            if(!find)
+            cout<<"No Answer!"<<endl;
+        }
+    }
+}
