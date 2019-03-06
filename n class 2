@@ -1,0 +1,54 @@
+#include<iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+int main()
+{
+    int num;
+    while(cin>>num)
+    {
+        int i=num;
+        if(i==1)
+            cout<<1<<endl;
+        if(i==2)
+            cout<<2<<endl;
+        if(i==3)
+            cout<<6<<endl;
+        if(i==4)
+            cout<<24<<endl;
+        if(i==5)
+            cout<<120<<endl;
+        if(i==6)
+            cout<<720<<endl;
+        if(i==7)
+            cout<<5040<<endl;
+        if(i==8)
+            cout<<40320<<endl;
+        if(i==9)
+            cout<<362880<<endl;
+        if(i==10)
+            cout<<3628800<<endl;
+        if(i==11)
+            cout<<39916800<<endl;
+        if(i==12)
+            cout<<479001600<<endl;
+        if(i==13)
+            cout<<6227020800<<endl;
+        if(i==14)
+            cout<<87178291200<<endl;
+        if(i==15)
+            cout<<1307674368000<<endl;
+        if(i==16)
+            cout<<20922789888000<<endl;
+        if(i==17)
+            cout<<355687428096000<<endl;
+        if(i==18)
+            cout<<6402373705728000<<endl;
+        if(i==19)
+            cout<<121645100408832000<<endl;
+        if(i==20)
+            cout<<2432902008176640000<<endl;
+            
+    }
+}
