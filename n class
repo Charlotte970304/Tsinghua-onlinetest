@@ -1,0 +1,41 @@
+#include<iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+long long number[257];
+int main()
+{
+    int num;
+    while(cin>>num)
+    {
+        //initial
+        for(int i=0;i<256;i++)
+            number[i]=0;
+        number[256]=1;
+        int index=256;
+        //count
+        for(int i=1;i<=num;i++)
+        {
+		    for(int j=256;j>0;j--)
+            {
+                number[j]=number[j]*i;
+            }
+		    for(int j=256;j>0;j--)
+            {
+                while(number[j]>10000000000)
+                {
+                    number[j]-=10000000000;
+                    number[j-1]++;
+                    index=j-1;
+                }
+        	}
+    	}
+//    	cout<<index<<endl;
+        for(int i=index;i<257;i++)
+    		if(i==index)
+            	cout<<number[i];
+  			else
+            	cout<<fixed<<setw(8)<<setfill('0')<<number[i];
+    }
+}
