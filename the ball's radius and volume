@@ -1,0 +1,16 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#define pi acos(-1)
+using namespace std;
+
+int main()
+{
+    double x0,y0,z0,x1,y1,z1,r,v;
+    while(cin>>x0>>y0>>z0>>x1>>y1>>z1)
+    {
+        r=sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0)+(z1-z0)*(z1-z0));
+        v=4.0/3.0*pi*r*r*r;
+        cout<<fixed<<setprecision(3)<<r<<" "<<v<<endl;
+    }
+}
