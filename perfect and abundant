@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+bool perfect[61];
+bool wang[61];
+void f(int number)
+{
+    int sum=0;
+    for(int i=1;i<=sqrt(number);i++)
+        if(number%i==0)
+        {
+            sum+=i;
+            if(i!=(number/i)&&i!=1)
+                sum+=(number/i);
+        }
+    if(sum>number)
+        wang[number]=true;
+    if(sum==number)
+        perfect[number]=true;
+}
+
+int main()
+{
+    bool num[61];
+    for(int number=2;number<=60;number++)
+        f(number);
+    cout<<"E:";
+    for(int number=2;number<=60;number++)
+        if(perfect[number])
+            cout<<" "<<number;
+    cout<<endl<<"G:";
+    for(int number=2;number<=60;number++)
+        if(wang[number])
+            cout<<" "<<number;
+}
