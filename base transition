@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<cmath>
+using namespace std;
+
+long long turn_to_d(string number,int m)
+{
+    long long ans=0,num;
+    reverse(number.begin(),number.end());
+    
+    for(long long i=0;i<number.length();i++)
+    {
+    	if(number[i]<65)
+    		num=number[i]-48;
+    	else
+    		num=number[i]-55;
+        ans=ans+num*pow(m,i);
+    }
+    return ans;
+}
+string turn_to_n(long long number,int n)
+{
+    string ans="";
+    char word;
+    while(number>0)
+    {
+        if(number%n>=10)
+            word=number%n+87;
+        else
+            word=number%n+48;
+        ans=word+ans;
+        number/=n;
+    }
+    return ans;
+}
+
+int main()
+{
+    int m,n;
+    string x;
+    while(cin>>m>>n>>x)
+    {
+        cout<<turn_to_n(turn_to_d(x,m),n)<<endl;
+    }
+}
