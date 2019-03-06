@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string preorder;
+    while(cin>>preorder)
+    {
+        char stack[preorder.length()];
+        int top=-1;
+        for(int i=0;i<preorder.length();i++)
+        {
+            if(preorder[i]=='#')
+            {
+                cout<<stack[top]<<' ';
+                top--;
+            }
+            else
+            {
+                top+=1;
+                stack[top]=preorder[i];
+            }
+        }
+        cout<<endl;
+    }
+}
