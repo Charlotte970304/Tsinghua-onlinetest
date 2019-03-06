@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string word;
+    while(cin>>word)
+    {
+        int time=0;
+        for(int i=0;i<word.length();i++)
+        {
+            if(word[i]=='a'||word[i]=='d'||word[i]=='g'||word[i]=='j'||
+               word[i]=='m'||word[i]=='p'||word[i]=='t'||word[i]=='w')
+                time+=1;
+            if(word[i]=='b'||word[i]=='e'||word[i]=='h'||word[i]=='k'||
+               word[i]=='n'||word[i]=='q'||word[i]=='u'||word[i]=='x')
+                time+=2;
+            if(word[i]=='c'||word[i]=='f'||word[i]=='i'||word[i]=='l'||
+               word[i]=='o'||word[i]=='r'||word[i]=='v'||word[i]=='y')
+                time+=3;
+            if(word[i]=='s'||word[i]=='z')
+                time+=4;
+            if(word[i]<=111&&(word[i]-1)/3==(word[i+1]-1)/3)
+                time+=2;
+            else if((word[i]/4)==28&&(word[i+1]/4)==28)
+                time+=2;
+            else if((word[i]+1)/3==39&&(word[i+1]+1)/3==39)
+                time+=2;
+            else if(((word[i]+1)/4)==30&&((word[i+1]+1)/4)==30)
+                time+=2;
+        }
+        cout<<time<<endl;
+    }
+}
