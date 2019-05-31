@@ -1,0 +1,22 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector<int> grade[101];
+    int N,p,q;
+    cin>>N;
+    for(int i=0;i<N;i++)
+    {
+        cin>>p>>q;
+        grade[q].push_back(p);
+    }
+    for(int i=0;i<101;i++)
+    {
+        sort(grade[i].begin(),grade[i].end());
+        for(int index=0;index<grade[i].size();index++)
+            cout<<grade[i][index]<<' '<<i<<endl;
+    }
+}
