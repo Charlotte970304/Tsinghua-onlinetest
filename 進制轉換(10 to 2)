@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <string.h>
+#include<string>
+#include<iostream>
+using namespace std;
+
+const int N = 100009;
+
+struct Node
+{
+    int d[N];
+    int len;
+
+    Node() {memset(d, 0, sizeof(d));len=1;}
+    Node(char *s)
+    {
+        memset(d, 0, sizeof(d));
+        len = strlen(s);
+        int i = 0;
+        while(s[i] != '\0')
+        {
+            d[len-i-1] = s[i] - '0';
+            ++i;
+        }
+    }
+
+    int cmp(const Node &t)
+    {
+        int l = this->len - t.len;
+        if(l < 0)
+            return -1;
+
+        int i;
+        for(i=t.len-1;i>=0;i--)
+        {
+            if(this->d[i+l] < t.d[i])
+                break;
+            else if(this->d[i+l] > t.d[i])
+            {
+                return l;
+            }
+        }
+        if(i < 0)
+            return l;
+        return l-1;
+    }
+
+    void change(int pos)
+    {
+        this->d[pos] += 1;
+        int i = pos;
+        while(this->d[i] > 9)
+        {
+            this->d[i] -= 10;
+            this->d[i+1]++;
+            ++i;
+        }
+        if(i+1 > this->len)
+            this->len = i+1;
+    }
+
+    Node operator / (const Node &t)
+    {
+        Node ans;
+        while(1)
+        {
+            int p = this->cmp(t);
+            if(p == -1)
+                break;
+            else
+            {
+                ans.change(p);
+                for(int i=0;i<t.len;i++)
+                {
+                    this->d[i+p+1]--;
+                    this->d[i+p] = this->d[i+p]+10-t.d[i];
+                    if(this->d[i+p] > 9)
+                    {
+                        this->d[i+p] -= 10;
+                        this->d[i+1+p]++;
+                    }
+                }
+                while(this->len > 1 && this->d[this->len - 1] == 0)
+                    this->len--;
+            }
+        }
+
+        return ans;
+    }
+
+};
+
+char str[N];
+
+int main()
+{
+	string word;
+	while(getline(cin,word))
+	{
+		for(int i=0;i<word.length();i++)
+			str[i]=word[i];
+		if(str[0]=='\0')
+			break;	
+		string r="";
+		while(str[0]!='0')
+		{
+			string q="";
+			Node a(str);
+		    Node b("2");
+		    Node ans = a / b;
+		    for(int i=ans.len-1;i>=0;i--)//商
+		        q=q+(char)(ans.d[i]+48); 
+		    for(int i=a.len-1;i>=0;i--)//模
+		        r=(char)(a.d[i]+48)+r;
+		    strcpy(str,q.c_str());
+		}
+		printf("%s\n",r.c_str());
+	}
+    return 0;
+}
