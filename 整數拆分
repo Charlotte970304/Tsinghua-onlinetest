@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	unsigned long long result[1000001]={0};
+	result[0]=result[1]=1;
+	for(long i=2;i<=1000000;i++)
+	{
+		if(i%2==0)
+			result[i]=(result[i-2]+result[i/2])%1000000000;
+		else
+			result[i]=result[i-1]%1000000000;
+	}
+	long n;
+	while(cin>>n)
+		cout<<result[n]<<endl;
+}
+/*
+f(0)=f(1)=1
+f(2)=f(3)=2
+f(4)=f(5)=4
+f(6)=f(7)=6
+f(8)=f(9)=10
+f(10)=f(11)=14
+f(12)=f(13)=20
+f(14)=f(15)=26
+f(16)=f(17)=36
+f(18)=f(19)=46
+f(20)=f(21)=60
+f(22)=f(23)=74
+
+f(2)=f(0)+f(1)=2
+f(4)=f(2)+f(2)=4
+f(6)=f(4)+f(3)=6
+f(8)=f(6)+f(4)=10
+f(10)=f(8)+f(5)=14
+f(22)=f(20)+f(11)
+
+if(n%2==0)
+	f(n)=f(n-2)+f(n/2)
+else
+	f(n)=f(n-1)
+  */
